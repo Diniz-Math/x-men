@@ -1,0 +1,102 @@
+body {
+  font-family: "Oxanium", cursive;
+  background-color: #000000;
+  color: #ffffff; /* cor dos textos */
+}
+
+body::before {
+  /* criando um pseudo elemento (não existe no html) antes do body */
+  content: "";
+  background-image: url(../imagens/bg-desktop.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* indica que o before ficará atrás de todos os outros elementos */
+  opacity: 0.2;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: center;
+}
+
+.selecao-de-personagens {
+  display: flex;
+  /* o display flex faz com que as propriedades definidas no elemento pai, sejam aplicadas no elemento filho */
+  align-items: center;
+  gap: 30px;
+  /* esse gap define o gap entre a section de seleção e a section do personagem selecionado (filhas da tag main)
+  Align-items e justify-content dependem do flex-direction: se for row, align-items alinhará verticalmente e
+  justify-content horizontalmente
+  */
+  min-height: calc(100vh - 152px);
+  /*100vh = 100% viewport height = 100% da altura da janela de exibição (navegador) 
+  -152 px que é a altura do cabeçalho*/
+  justify-content: center;
+}
+
+.selecao-de-personagens .lista-de-personagens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  /* quando esgotar o espaço da div, wrap faz com que os proximos elementos sejam postos na linha abaixo */
+}
+
+.selecao-de-personagens .personagens {
+  display: flex; /* indicando o flexbox */
+  flex-direction: column; /* posicionando o h1 e os personagens verticalmente*/
+  align-items: center;
+  max-width: 585px;
+  gap: 25px; /* entre o título e a lista de personagens */
+}
+
+.selecao-de-personagens .personagens .titulo {
+  font-size: 20px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  border-bottom: 2px solid #47f4ff;
+  width: 100%; /* 100% da largura do pai (section personagens => 585px)*/
+  text-align: center;
+}
+
+.lista-de-personagens .personagem img {
+  width: 100%;
+  height: 100%;
+}
+
+.lista-de-personagens .personagem.selecionado {
+  /* .personagem.selecionado sem espaço pois é um elemento com duas classes */
+  box-shadow: 0px 0px 24px 5px #0271f7;
+}
+
+.lista-de-personagens .personagem {
+  border-bottom: 4px solid #47f4ff;
+  cursor: pointer;
+}
+
+.personagem-selecionado {
+  text-align: center;
+  max-height: 530px;
+}
+
+.personagem-selecionado .personagem-grande {
+  width: 430px;
+  height: 430px;
+}
+
+.personagem-selecionado .nome-personagem {
+  border-bottom: 2px solid #47f4ff;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.personagem-selecionado .descricao-personagem {
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  margin-top: 20px;
+  width: 420px;
+}
